@@ -20,4 +20,14 @@ Team Sample JSON:
 }
 ```
 
+Activity Sample JSON:
+```json
+{
+	"activity":	"run"
+	"duration":	"01:06:32.81"
+	"distance":	10.01
+	"shoe":		"NiKePeGs"
+	
+}
+```
 
