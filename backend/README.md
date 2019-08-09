@@ -20,7 +20,7 @@ Athlete Sample JSON:
 	"team":		"wuxc",
 	"birthdate":	"01-01-2000",
 	"username":	"pipyet",
-	"password":	"qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l"
+	"password":	"qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l",
 	"profile_url":	"https://www.google.com/images?q=dog.png"
 }
 
