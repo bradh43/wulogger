@@ -1,6 +1,20 @@
 # WUSTL Logger
 Website where runners can log runs and share with others.
 
+## Getting Started
+Clone the project
+```bash
+git clone https://github.com/bradh43/wulogger.git
+```
+If on mac install homebrew
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+Install NPM
+```bash
+brew install npm
+```
+
 ## Architecture
 <p align="center">
   <img width="460" height="300" src="wulogger.png">
