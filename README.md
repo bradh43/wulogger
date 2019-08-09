@@ -14,6 +14,10 @@ Install NPM
 ```bash
 brew install npm
 ```
+Install python3
+```bash
+brew install python3
+```
 
 ## Architecture
 <p align="center">
