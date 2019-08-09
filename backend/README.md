@@ -10,7 +10,7 @@
 
 ### Logs
 
-===
+---
 ## Sample Data
 Athlete Sample JSON:
 ```json
