@@ -51,8 +51,8 @@ Activity Sample JSON:
 	
 }
 ```
-`activity` (String) - activity type
-`duration` () - time took to complete activity
-`distance` (float) - distance completed for activity
-`shoe` (String) - name of shoe if applicable
+* `activity` (String) - activity type
+* `duration` () - time took to complete activity
+* `distance` (float) - distance completed for activity
+* `shoe` (String) - name of shoe if applicable
 
