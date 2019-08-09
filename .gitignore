@@ -2,4 +2,9 @@ node_modules
 
 # Python Stuff
 *.pyc
-.idea/
+
+# User Specific Stuff
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+*.iml
