@@ -1,4 +1,16 @@
 # WU Logger Backend
+## Sample API Calls
+### User
+#### Login
+#### Create Account
+#### Change Password
+#### Update Profile
+
+### Team
+
+### Logs
+
+===
 ## Sample Data
 Athlete Sample JSON:
 ```json
@@ -9,6 +21,7 @@ Athlete Sample JSON:
 	"birthdate":	"01-01-2000",
 	"username":	"pipyet",
 	"password":	"qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l"
+	"profile_url":	"https://www.google.com/images?q=dog.png"
 }
 
 ```
@@ -18,6 +31,7 @@ Athlete Sample JSON:
 * `birthdate` () - birthdate of athlete
 * `username` (String) - username of athlete, used as unique id
 * `password` (String) - hashed password of athlete
+* `profile_url` (String) - URL to the athlete's profile image
 ---
 Team Sample JSON:
 ```json
