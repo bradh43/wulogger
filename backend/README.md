@@ -17,12 +17,13 @@ Athlete Sample JSON:
 {
 	"first_name":	"Prat",
 	"last_name":	"Bishnupuri",
-	"team_list":		["wuxc", "GoSTL"],
+	"team_list":	["wuxc", "GoSTL"],
 	"birthdate":	"01-01-2000",
 	"display_name":	"pipyet",
 	"email":	"prat@wustl.edu",
+	"private":	"false",
 	"password":	"qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l",
-	"profile_picture_url":	"https://www.google.com/images?q=dog.png",
+	"profile_picture_url":	"https://www.google.com/images?q=profile_pic.png",
 	"shoe_list": [
 		{
 			"name":	"NiKePeGs",
@@ -41,6 +42,7 @@ Athlete Sample JSON:
 * `birthdate` (String) - birthdate of athlete in IS0186 format MM-DD-YYYY
 * `display_name` (String) - username of athlete, used as unique id
 * `email` (String) - athlete's email, used as unique ID for logging in
+* `private` (Boolean) - makes logs private, defaults to false
 * `password` (String) - hashed password of athlete
 * `profile_picture_url` (String) - URL to the athlete's profile image
 ---
