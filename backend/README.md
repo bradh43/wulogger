@@ -73,10 +73,10 @@ Activity Sample JSON:
 
 }
 ```
-`activity` (String) - activity type
-`duration` (String) - time took to complete activity
-`distance` (float) - distance completed for activity
-`shoe` (String) - name of shoe if applicable
+* `activity` (String) - activity type
+* `duration` (String) - time took to complete activity
+* `distance` (float) - distance completed for activity
+* `shoe` (String) - name of shoe if applicable
 
 Log Sample JSON:
 ```json
@@ -85,6 +85,7 @@ Log Sample JSON:
 	"note":	"Had a neat run",
 	"date":	"01-31-2019",
 	"author": "Prat",
+	"sleep_hr": 8.0,
 	"last_updated_timestamp": "2019-08-07T18:21:00.000Z",
 	"activity_list": [
 
@@ -99,10 +100,10 @@ Log Sample JSON:
 	],
 }
 ```
-`activity` (String) - activity type
-`duration` (String) - time took to complete activity
-`distance` (float) - distance completed for activity
-`shoe` (String) - name of shoe if applicable
+* `activity` (String) - activity type
+* `duration` (String) - time took to complete activity
+* `distance` (float) - distance completed for activity
+* `shoe` (String) - name of shoe if applicable
 
 Shoe Sample JSON:
 ```json
@@ -114,6 +115,6 @@ Shoe Sample JSON:
 	"status":	"active"
 }
 ```
-`name` (String) - activity type
-`distance` (String) - time took to complete activity
-`distance_unit` (float) - distance completed for activity
+* `name` (String) - activity type
+* `distance` (String) - time took to complete activity
+* `distance_unit` (float) - distance completed for activity
