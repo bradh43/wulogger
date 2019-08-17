@@ -12,10 +12,31 @@ to log in to LogARun, then a GET request to pull the correct week.
 
 '''
 
+from requests import Session
+
 class LogarunToWULoggerPipeline():
 
-	def __init__(self):
+	def __init__(self, userData):
 		self.name = 'Test Thing'
+		self.searchURL = 'http://www.logarun.com/logon.aspx'
+		self.userData = userData
+		self.loginFormData = self.createLoginFormData()
+		print(self.userData)
+
+	def createLoginFormData(self):
+		return {
+			'__VIEWSTATE': '/wEPDwULLTE5NTUyNzc3NDhkZC7w9zeYDbAWpWTaWlQFzEFw15ln',
+			'__VIEWSTATEGENERATOR': '5A2128B1',
+			'SubmitLogon': 'true',
+			'LoginName': self.userData['userName'],
+			'Password': self.userData['password'],
+			'LoginNow': 'Login'
+		}
+
+	def getLoginCredentialsStatus(self):
+		testSession = Session()
+		sessionResponseData = testSession.post(self.searchURL, data=self.loginFormData)
+		return sessionResponseData.status_code
 
 if __name__ == '__main__':
 	print("Main Not Implemented")

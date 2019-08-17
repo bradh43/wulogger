@@ -1,7 +1,7 @@
 from requests import Session
 from datetime import date, datetime, timedelta
 from bs4 import BeautifulSoup
-from LogarunLog import LogarunLog
+from backend.python.LogarunLog import LogarunLog
 from time import time
 import json
 import numpy as np
