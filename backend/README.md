@@ -78,7 +78,7 @@ Activity Sample JSON:
 * `distance` (Float) - distance completed for activity
 * `distance_unit` (String) - unit of the activity
 * `shoe` (String) - name of shoe if applicable
-
+---
 Log Sample JSON:
 ```json
 {
@@ -115,7 +115,7 @@ Log Sample JSON:
 * `activity_list` (Array) - list of activities for the current day
 * `like_list` (Array) - list of users who have liked that log
 * `comment_list` (Array) - list of comments on the current log
-
+---
 Shoe Sample JSON:
 ```json
 {
