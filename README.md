@@ -10,10 +10,8 @@ If on mac install homebrew
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-Install NPM
-```bash
-brew install npm
-```
+Install NPM and Node from https://www.npmjs.com/get-npm
+
 Install python3
 ```bash
 brew install python3
@@ -87,7 +85,7 @@ This takes a decent amount of setup to get things running, so it's possible that
 
 (Zac) - Agree with everything here, I think LogARun had some stuff that seemed silly but actually have pretty great qualities (mileage for shoes, showing the entire team at once, public/private profiles, etc...)
 
-(Nate) - looks dope. Thinking of random things to add (potentially): route ran, be able to link vids/images, tag people in logs that links their profile. With customized workouts, have spot for split times for each rep and display nicely. Add type of run (workout, race, run, etc.) and be able to sort a person's calendar by that type. Profile Pictures! Be able to view an individual by week (aka not having to click everyday to read log). 
+(Nate) - looks dope. Thinking of random things to add (potentially): route ran, be able to link vids/images, tag people in logs that links their profile. With customized workouts, have spot for split times for each rep and display nicely. Add type of run (workout, race, run, etc.) and be able to sort a person's calendar by that type. Profile Pictures! Be able to view an individual by week (aka not having to click everyday to read log).
 
 So the basic features of the logging app will incorporate a lot of logarun style plus blog style posts.
   - user profiles
