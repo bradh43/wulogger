@@ -1,0 +1,36 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "wulogger-react-app-dev-20190820185121-authRole",
+            "UnauthRoleArn": "arn:aws:iam::199854827602:role/wulogger-react-app-dev-20190820185121-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::199854827602:role/wulogger-react-app-dev-20190820185121-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "wulogger-react-app-dev-20190820185121-deployment",
+            "UnauthRoleName": "wulogger-react-app-dev-20190820185121-unauthRole",
+            "StackName": "wulogger-react-app-dev-20190820185121",
+            "StackId": "arn:aws:cloudformation:us-east-2:199854827602:stack/wulogger-react-app-dev-20190820185121/c8cba440-c3a5-11e9-a154-0ae094dd1c0e"
+        },
+        "categories": {
+            "auth": {
+                "wulogger": {}
+            }
+        }
+    },
+    "wulogger": {
+        "awscloudformation": {
+            "AuthRoleName": "wulogger-react-app-wulogger-20190821093314-authRole",
+            "UnauthRoleArn": "arn:aws:iam::199854827602:role/wulogger-react-app-wulogger-20190821093314-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::199854827602:role/wulogger-react-app-wulogger-20190821093314-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "wulogger-react-app-wulogger-20190821093314-deployment",
+            "UnauthRoleName": "wulogger-react-app-wulogger-20190821093314-unauthRole",
+            "StackName": "wulogger-react-app-wulogger-20190821093314",
+            "StackId": "arn:aws:cloudformation:us-east-2:199854827602:stack/wulogger-react-app-wulogger-20190821093314/fbf81d50-c420-11e9-86bc-069bf518e2a4"
+        },
+        "categories": {
+            "auth": {
+                "wulogger": {}
+            }
+        }
+    }
+}
