@@ -43,7 +43,6 @@ class WebScraper:
 		with Session() as currentScrapingSession:
 			self.loginToLogarun(currentScrapingSession)
 			for weekNumber in range(0, self.numberWeeksToSearch + 1):
-				if weekNumber % 20 == 0 and weekNumber != 0: self.saveToFile()
 				startingTime = time()
 				print(f'\nScraping for Week {weekNumber}\n')
 				weekStringToSearch = self.getWeekStringToSearch(weekNumber)
@@ -69,20 +68,4 @@ class WebScraper:
 			dailyLogToParse.handleHTMLParser()
 			print(f'Scraped {dailyLogToParse}')
 			self.logarunData.append(dailyLogToParse.__dict__)
-
-	def saveToFile(self):
-		print(f'Saving {len(self.logarunData)} logs!')
-		JSONArrayOfLogs = [json.dumps(log) for log in self.logarunData]
-		numpyVersionOfArray = np.array(JSONArrayOfLogs)
-		JSONArrayOfLogs = None
-		pandasPrepared = [json.loads(log) for log in numpyVersionOfArray]
-		numpyVersionOfArray = None
-		df = pd.DataFrame(pandasPrepared)
-		pandasPrepared = None
-		pandasDataFrame = pd.concat([df.drop('activityMetrics', axis=1), pd.DataFrame(df['activityMetrics'].tolist())],
-		                            axis=1)
-		df = None
-		pandasFileName = f'../pandas/pandas_{self.numberWeeksToSearch}_weeks_{datetime.strftime(self.currentDate, "%m_%d_%Y")}'
-		pandasDataFrame.to_pickle(f'{pandasFileName}.pkl')
-		pandasDataFrame = None
 

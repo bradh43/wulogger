@@ -5,6 +5,7 @@ Will transfer this to LogarunToWULoggerPipeline when this is done, but want to k
 
 '''
 
+import requests
 import boto3
 
 athlete_info = {
