@@ -1,2 +1,0 @@
-# WU Logger Frontend
-

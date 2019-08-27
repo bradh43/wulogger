@@ -93,7 +93,7 @@ Log Sample JSON:
 			"type":	"swim",
 			"duration": "01:06:32.81",
 			"distance": 6.3,
-			"distance_unit": "km",
+			"distance_unit": "km"
 		}
 	],
 	"like_list": ["Joe", "Brad"],
@@ -102,8 +102,8 @@ Log Sample JSON:
 			"comment": "cool bro",
 			"timestamp": "2019-07-05T14:48:00.000Z",
 			"user":	"Joe"
-		},
-	],
+		}
+	]
 }
 ```
 * `title` (String) - title of the log
