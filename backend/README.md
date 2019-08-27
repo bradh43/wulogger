@@ -19,8 +19,8 @@ Athlete Sample JSON:
 	"last_name": "Bishnupuri",
 	"team_list": ["wuxc", "GoSTL"],
 	"birthdate": "01-01-2000",
-	"username" : "pipyet"
-	"display_name":	"that_one_runner",
+	"username" : "pipyet",
+	"display_name" : "that_one_runner",
 	"email": "prat@wustl.edu",
 	"private": "false",
 	"password": "qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l",
