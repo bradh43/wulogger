@@ -19,7 +19,8 @@ Athlete Sample JSON:
 	"last_name": "Bishnupuri",
 	"team_list": ["wuxc", "GoSTL"],
 	"birthdate": "01-01-2000",
-	"display_name":	"pipyet",
+	"username" : "pipyet"
+	"display_name":	"that_one_runner",
 	"email": "prat@wustl.edu",
 	"private": "false",
 	"password": "qwerty1ui2op3zxc4vb5nm6a7sd8fgh9j!k0l",
@@ -40,7 +41,8 @@ Athlete Sample JSON:
 * `last_name` (String) - Last name of athlete
 * `team_list` (Array) - Team names that the athlete belongs to
 * `birthdate` (String) - birthdate of athlete in IS0186 format MM-DD-YYYY
-* `display_name` (String) - username of athlete, used as unique id
+* `username` (String) - unique username of the athlete
+* `display_name` (String) - displayed name of athlete
 * `email` (String) - athlete's email, used as unique ID for logging in
 * `private` (Boolean) - makes logs private, defaults to false
 * `password` (String) - hashed password of athlete
