@@ -1,6 +1,8 @@
 {
-    "resourceNameTruncated": "wulogg30d0306e",
-    "userPoolName": "wulogger-user-pool",
+    "identityPoolName": "wuloggerUserPool",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "wuloggf64e17d1",
+    "userPoolName": "wuloggerUserPool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -26,7 +28,6 @@
         "family_name",
         "gender",
         "given_name",
-        "phone_number",
         "preferred_username",
         "picture"
     ],
@@ -38,13 +39,14 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "wulogg30d0306e_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "wuloggf64e17d1_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "useDefault": "manual",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "resourceName": "wulogger",
+    "thirdPartyAuth": false,
     "usernameAttributes": [
-        "email, phone_number"
+        "email"
     ],
     "triggers": "{}",
     "hostedUI": false,
