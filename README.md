@@ -25,7 +25,7 @@ brew install python3
 
 # WUXC LogARun
 
-Prat and I have sort of decided that we want to run with the LogARun remake. It will give us a chance to practice on a pretty full-stack project, plus it would be applicable for the team at some point.
+What started as a funny joke of remaking our favorite website has turned into a legitimate project. Should give us a great opportunity to learn about all facets of full stack development, as well as provide an opportunity to code something a little more robust than the snake game or a sorting algorithm.
 
 # Implementation
 
@@ -33,91 +33,70 @@ Not sure what other people think about for front-end/server/database stuff, but 
 
 ## Front-End Stuff
 
-Per usual this is typically HTML/CSS, but there are certainly other frameworks that we can use. React is becoming the new standard, yet it may be sorta confusing for people who aren't totally up to speed with HTML and such. I know that Brad has done stuff in React, I use it at work, and maybe Prat (?) has used it before.
-
-Angular is another option that we could do, although this is starting to become less popular. If we want to learn stuff that will be applicable in a few years, this may not be the route to go.
-
-Vue.JS is new (?) and I'm not that familiar with it at all. I know that it can be used but I recommend this not end up being our mode of front end development.
-
-Of course, we could always default to static HTML pages just to start. I'm getting pretty comfortable converting static HTML stuff into React Components; even if people aren't that comfortable building out everything in React, I would probably be able to convert stuff into the correct framework to make everything look clean.
-
-Prat: I would like to learn to use React since it got brought up in 2 interviews. We should not stick with default static HTML since it doesn't allow for us to learn as Nate and I already have experience with it from classes and such so we should work with something we can't learn in class.
-
-Nate: I did one assignment with React in 204 and would like more work with it. Agree to start with static HTML prob.
+React. That's pretty much it. HTML and CSS (SCSS?) are defaults and will be used, of course, but React will allow us to "modularize" different aspects of the site into smaller components. If you haven't used React before, their documentation is fairly decent and there are really good tutorials/walkthroughs for all levels. Don't have any specific links to the best ones, but feel free to add them in the Resources section if you find ones you like!
 
 ## Server-side
 
-We would certainly need to figure out where we're hosting this stuff. We could run a Node.JS server up on an EC2 instance, but this would cost us money if we want full up time. My brother and I are currently running through another project to get used to a bunch of AWS integration, so we might also be able to run stuff through AWS Lambda functions.
+This is the section that isn't completely nailed down. Our thought is to go serverless to some degree, mostly trying to minimize cost and branch out into some newer technologies. If anyone has strong feelings about some framework/platform/server implementation reach out to someone. 
 
-We could also host stuff through some other form of server farm or something if anyone has any other ideas concerning this.
-
-Prat: AWS or Microsoft Azure offer some free cloud services
+In any case, we could always use a Node.JS server up on some EC2 instance as a fallback. This is known to work (most of us should have seen this in 330 or some other class?) and while costing more than serverless really wouldn't end up being too much. If this somehow gets really big and we get tons of throughput to the site then we can adjust and perhaps rethink our strategy.
 
 ## Database / Data Storage
 
-Loads of ways we could approach this portion. MongoDB has some pretty decent infrastructure for larger data sets (assuming this ends up being used and we need to start storing logs somewhere). Firebase through Google is another option, but I'm not sure if it scales super well. We could also look into something from AWS (DynamoDB through AWS, S3) or other large-scale data storage options (Oracle's MySQL, PostgreSQL).
-
-Prat: MongoDB is free, but space is VERY limited on there. MySQL and old fashion sql servers are always possible. How good is DynamoDB? -Does it offer more space than MongoDB for free?
-
-Nate: Currently working with mysql for work lol. seems old.
+Loads of ways we could approach this portion, and nothing is set as of now. We are leaning towards DynamoDB (some testing development has been done and PoC is already completed), but there are a few strong cases for something not inside of AWS just in case we pivot from the whole "AWS is God" mindset. MongoDB has some pretty decent infrastructure for larger data sets (assuming this ends up being used and we need to start storing logs somewhere).
 
 ## Project Tracking
 
-Not really necessary but it is nice to have something that would help us track what needs to be done/things that people could work on. We use PivotalTracker at work, but we would have to pay if we all want to hop on there (plus it can be a little overwhelming for something that is less serious). GitHub projects is pretty well integrated and would allow us to tie commits/pull requests to specific issues. That's definitely my choice, or at least what I think would fit this project in its current state.
-
-Prat: PivotalTracker allows for 3 free users. Azure's Agile management tool allows for 5 free. Jira sucks.
-
-Nate: lol im worthless on here. but wanna try and help.
-
-## Example
-
-My brothers and I are currently building out another project, so I sort of have an idea of how things should line up for something to be self-sufficient.
-
-- *Front-end:* Using React to build out components, clearly HTML and SCSS off of that.
-- *Server-side:* Using AWS API Gateway to handle incoming requests, pushing through AWS Lambda (Python).
-- *Database/Storage:* Using AWS DynamoDB for connected users, AWS S3 to store other data.
-- *Project Tracking:* Using PivotalTracker, but this is difficult with >3 people
-- *Miscellaneous:* Using AWS Cognito to track user profiles, AWS CloudWatch for error logging
-
-This takes a decent amount of setup to get things running, so it's possible that we could move everything over to there once things get off the ground.
+Depending on how serious we end up about keeping progress moving forward, we would end up needing to use something that keeps track of different phases of the project. A project has been built on PivotalTracker already (https://www.pivotaltracker.com/n/projects/2422462), but we can certainly use a scrumboard-esque thing if that appeals to more people. PivotalTracker only allows three users on a single project for the free version, but it is quite good for visualizing where things need to go. Of course, GitHub Projects has already been started for this project and has worked decently, it is a great option if we try to stay strict to it.
 
 ## Features
 
-(Zac) - Agree with everything here, I think LogARun had some stuff that seemed silly but actually have pretty great qualities (mileage for shoes, showing the entire team at once, public/private profiles, etc...)
+There is a lot that goes into a logging app (shocking), so this will hopefully give us a roadmap to some degree. Nothing is set in stone, and we can always add/remove stuff as we see fit.
 
-(Nate) - looks dope. Thinking of random things to add (potentially): route ran, be able to link vids/images, tag people in logs that links their profile. With customized workouts, have spot for split times for each rep and display nicely. Add type of run (workout, race, run, etc.) and be able to sort a person's calendar by that type. Profile Pictures! Be able to view an individual by week (aka not having to click everyday to read log).
+- User Profiles
+  - Option to be public and private, not sure about the granularity of what "private" entails yet.
+- Logging Runs (duh)
+  - Calendar style to see month by month, or week by week
+  - Title for the log, as well as some note for that day
+  - Personal view as well as Team view
+  - Activity Information
+    - Route names
+    - Mileage, Distance, Shoe Selection
+    - Default shoes, Retired shoes, Mileage per shoe
+  - Customized Workouts
+    - Workout creation and Naming (CVs, 4-4-2, Country Club Sub-60)
+    - Type of workout (similar to naming, to some degree)
+    - Split times for the given workout
+    - Search functionality
+    - Ability to point to a Team or an Individual (better for coaches to set stuff up)
+  - Commenting on other users' logs
+  - Tagging other runners in your own log
+- Teams
+  - Ability to create and join a team with other runners
+  - Team can be public or private (same issues of granularity as before)
+  - Owner/Coach/Manager of teams
+    - Ability to add/remove athletes from the team
+    - Ability to transfer ownership to another user
+- Overall Features
+  - Emojis!
+  - Picture and video integration
+  - GPS hooks, similar to Strava
+  - Notifications
+  - Some AI aspect for predictions, suggestions, or generating similarity graphs (this is Zac's idea, really just like the AI/ML side of things at this point...)
+  
+## Coding and Architecture Practices
 
-So the basic features of the logging app will incorporate a lot of logarun style plus blog style posts.
-  - user profiles
-    - private profiles
-    - public profiles
-  - Logging runs
-    - calender style
-    - title of logs plus description of log
-    - ability to view personal calender and team calendar.
-    - mileage, distance, shoes
-      - set default shoes
-      - retire shoes
-      - see mileage on shoes
-    - customized workouts
-      - ability to create workouts and use by name.
-      - search by workout
-      - workouts should be able to be created by team for individual on team or (lesser idea) by individual for individual.
-        The reason by team for individuals is because the workouts are mainly made by the coach so people can search by workouts and
-        and see their workouts as well as other who did that workout.
-        For example 4-2-2 is a workout name but the workout can be defined by the individual as like 4x(4-2-2) or 3(4-2-2) + 1600s in-outs. This way different variations of the same workouts aren't defined as different workouts. The only issue I see with this is if an individuals use this tool to log without being on a team.
-        (Zac) I agree this could be difficult with individual loggers, but easier if we had custom workouts
-     - ability to comment on runs
-  - Creating/Joining a team
-    - private teams
-    - public teams (maybe?)
-    - leaving/kicking from a team
-    - transfer of ownership of team
-  - ability to add eomjis in log description (Lia's request)
-  - Leaderboard for weekly mileage
-  - tag user profiles in description and comments, giving notifications to tagged user
-    - i don't know how useful this would be, but just throwing ideas out there
-    - (Zac) 100% agree this should be included. Even something similar like **@Prat** or something
+There are a multitude of different opinions on how to correctly develop things, but we will try to follow CI/CD the best we can. If people have experience with this, great! If not, then it's a great opportunity to start to see how things work.
+
+We can also try to have this be a fully tested application. Test Driven Development (TDD) is a great way to ensure this, and while it may take some time to get used to and will feel like it slows everything down, it certainly speeds things up in the future. We recommend going through the TDD resource if you want to learn more about this.
+  
+# Resources
+
+Any website or information that you feel is important/helpful/interesting/mildly amusing should go here! Anything that allows the project to continue moving forward is appreciated.
+
+TDD - https://www.eecs.yorku.ca/course_archive/2003-04/W/3311/sectionM/case_studies/money/KentBeck_TDD_byexample.pdf
+CI - https://github.com/jhulick/bookstuff/blob/master/Addison.Wesley.Continuous.Integration.Jun.2007.pdf
+CD - http://www.synchronit.com/downloads/Continuous%20Delivery%20-%20Reliable%20Software%20Releases%20Through%20Build,%20Test%20And%20Deployment%20Automation.pdf
 
  ## Dumb Features - Place for dumb ideas that aren't important but can be used once a year
   - Export data from user profile of runs and average paces by day.
