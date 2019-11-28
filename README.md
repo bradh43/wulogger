@@ -94,9 +94,9 @@ We can also try to have this be a fully tested application. Test Driven Developm
 
 Any website or information that you feel is important/helpful/interesting/mildly amusing should go here! Anything that allows the project to continue moving forward is appreciated.
 
-TDD - https://www.eecs.yorku.ca/course_archive/2003-04/W/3311/sectionM/case_studies/money/KentBeck_TDD_byexample.pdf
-CI - https://github.com/jhulick/bookstuff/blob/master/Addison.Wesley.Continuous.Integration.Jun.2007.pdf
-CD - http://www.synchronit.com/downloads/Continuous%20Delivery%20-%20Reliable%20Software%20Releases%20Through%20Build,%20Test%20And%20Deployment%20Automation.pdf
+- TDD: https://www.eecs.yorku.ca/course_archive/2003-04/W/3311/sectionM/case_studies/money/KentBeck_TDD_byexample.pdf
+- CI: https://github.com/jhulick/bookstuff/blob/master/Addison.Wesley.Continuous.Integration.Jun.2007.pdf
+- CD: http://www.synchronit.com/downloads/Continuous%20Delivery%20-%20Reliable%20Software%20Releases%20Through%20Build,%20Test%20And%20Deployment%20Automation.pdf
 
  ## Dumb Features - Place for dumb ideas that aren't important but can be used once a year
   - Export data from user profile of runs and average paces by day.
