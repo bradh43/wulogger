@@ -1,23 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
 import './App.css';
-import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react';
+import './stylesheets/main.css'
+import Root from './pages/Root/Root';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Calendar from './pages/Calendar/Calendar';
 
-Amplify.configure(aws_exports);
+
+
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.aboutRef = React.createRef();
+    this.state = {
+      user: {},
+    }
+
+  }
+
+  componentDidMount(){
+    console.log("Componet mounted")
+
+  }
+
+  componentWillUnmount(){
+    console.log("Componet unmount")
+  }
 
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Welcome to WuLogger</p>
-        
-      </header>
-    </div>
-  );
+
+
+
+
+  render() {
+    return (
+        <BrowserRouter basename={process.env.PUBLIC_URL} >
+          <Root aboutRef={this.aboutRef}>
+            <Switch>
+              <Route path="/home" component={Home}/>
+              <Route path="/calendar" component={Calendar}/>
+              <Route path="/about" component={About}/>
+              <Route path="/" render={() => <Home/>}/>
+            </Switch>
+          </Root>
+        </BrowserRouter>
+    );
+  }
 }
 
-export default withAuthenticator(App, true);
+export default App;

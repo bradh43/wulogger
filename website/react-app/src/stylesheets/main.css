@@ -1,0 +1,49 @@
+:root {
+    /* Main colors used  for the website */
+    --primary: #007360;
+    /* Meant to be a slightly brighter color for buttons and gradients */
+    --primary-accent: #037764;
+
+
+    /* Colors for complimenting the other colors on the page */
+    --secondary: #a51417;
+    --secondary-accent: #af181b;
+
+    /* Colors used for the background */
+    --background-primary: #f9f9f9;
+    --background-secondary: #ffffff;
+}
+
+@font-face {
+    font-family: 'rocket';
+    src: url("../assets/fonts/ROCKET_WILDNESS.ttf");
+}
+body {
+    margin: 0;
+    color: white;
+    background-color: var(--background-primary);
+
+}
+.header-title {
+    font-family: 'rocket';
+    font-size: 2.4rem;
+}
+.container {
+    background-color: var(--background-primary);
+    margin-top: 64px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.padding {
+    padding: 32px;
+}
+.dark-text {
+    color: #6c7373;
+}
+.center-text {
+    text-align: center;
+}
