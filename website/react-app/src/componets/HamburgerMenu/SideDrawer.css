@@ -1,8 +1,6 @@
 .side-drawer {
     height: 100%;
     background: var(--background-primary);
-    box-shadow: 1px 0px 1px rgba(0, 0, 0);
-    box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 64px;
     left: 0;
@@ -42,6 +40,8 @@
 
 .open {
     transform: translateX(0%);
+    box-shadow: 1px 0px 1px rgba(0, 0, 0);
+    box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
 .side-drawer-spacing {

@@ -25,7 +25,7 @@ class Home extends Component {
                     <h1>Welcome to WuLogger!</h1>
                 </div>
                 <div className="center padding">
-                    <img src={require("../../assets/images/washu_mascot.png")} alt="bear"/>
+                    <img src={require("../../assets/images/washu_mascot.png")} alt="bear" className="center"/>
                 </div>
             </div>
         );
