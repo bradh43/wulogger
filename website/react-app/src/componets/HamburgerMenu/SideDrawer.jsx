@@ -15,6 +15,7 @@ const sideDrawer = props => {
                 <li onClick={props.closeSideDrawer}><Link to='/'>Home</Link></li>
                 <li onClick={props.closeSideDrawer}><Link to='/calendar/'>Calendar</Link></li>
                 <li onClick={props.closeSideDrawer}><Link to='/about/'>About</Link></li>
+                <li onClick={props.closeSideDrawer}><Link to='/login/'>Login</Link></li>
                 <div className="side-drawer-spacing"/>
             </ul>
         </nav>

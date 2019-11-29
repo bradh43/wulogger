@@ -35,6 +35,8 @@ body {
 .container {
     background-color: var(--background-primary);
     margin-top: 64px;
+    margin-bottom: 64px;
+    overflow: scroll;
 }
 .center {
     display: block;
@@ -50,4 +52,66 @@ body {
 }
 .center-text {
     text-align: center;
+}
+.card {
+    background-color: var(--background-secondary);
+    border-radius: 2px;
+    padding: 32px;
+    box-shadow: 0 2px 4px 0 rgb(0, 0, 0);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+.line-break {
+    height: 0.5px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: rgb(150,150,150);
+
+}
+.hidden {
+    display: none;
+}
+form {
+    display: block;
+    margin: 0px;
+}
+.light {
+    background: #6c7373 !important; 
+}
+input {
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    line-height: 32px;
+    width: 91%;
+}
+.button {
+    font-size: 1.3rem;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    text-align: center;
+    vertical-align: center;
+    background: var(--primary-accent);
+    color: white;
+    height: 32px;
+    line-height: 32px;
+    box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.round {
+    border-radius: 32px;
+}
+.box {
+    border-radius: 0.25rem;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+.button:active{
+    box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+    box-shadow: 0 8px 16px 0 RGBA(0, 0, 0, 0.2);
+}
+.input-block {
+    display: block;
+    width: 100%;
 }

@@ -20,7 +20,7 @@ class Calendar extends Component {
 
     render() {
         return(
-            <div className="container">
+            <div className="calendar">
                 <div className="padding dark-text center-text">
                     <h1>Calendar</h1>
                 </div>
