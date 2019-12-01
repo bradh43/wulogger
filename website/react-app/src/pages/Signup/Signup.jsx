@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+import './Signup.css';
 import {Link} from 'react-router-dom';
 
 function validateEmail(email) {
@@ -7,7 +7,13 @@ function validateEmail(email) {
     return email_regex.test(String(email).toLowerCase());
 }
 
-class Login extends Component {
+//password validator checks for 1 lower, 1 upper, 1 digit, 1 special, at least 6 letter long
+function validatePassword(password) {
+    var password_regex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
+    return password_regex.test(String(password));
+}
+
+class Signup extends Component {
     constructor(props){
         super(props);
 
@@ -34,12 +40,25 @@ class Login extends Component {
     }
 
     componentDidMount(){
+
         this.setState(state => ({
 
         }));
     }
 
-    formIsValid = () => {        
+    formIsValid = () => {   
+        if(this.state.firstName === ""){
+            this.setState({
+                errorMessage: "First name field is required.",
+            });
+            return false;
+        }      
+        if(this.state.lastName === ""){
+            this.setState({
+                errorMessage: "Last name field is required.",
+            });
+            return false;
+        } 
         if(this.state.email === ""){
             this.setState({
                 errorMessage: "Email field is required.",
@@ -52,24 +71,50 @@ class Login extends Component {
             });
             return false;
         } 
+        if(this.state.displayName === ""){
+            this.setState({
+                errorMessage: "Display name field is required.",
+            });
+            return false;
+        } 
         if(this.state.password === ""){
             this.setState({
                 errorMessage: "Password field is required.",
             });
             return false;
-        }        
+        }   
+        if (!validatePassword(this.state.password)) {
+            this.setState({
+                errorMessage: "Password must have 1 lower, 1 upper, 1 digit, 1 special, at least 6 letters long",
+            });
+            return false;
+        } 
+        if(this.state.reenterPassword === ""){
+            this.setState({
+                errorMessage: "Please reenter password",
+            });
+            return false;
+        }       
+
+        if(!(this.state.reenterPassword === this.state.password)){
+            this.setState({
+                errorMessage: "Passwords do not match",
+            });
+            return false;
+        }  
         this.setState({
             errorMessage: "",
         });
         return true;
     }
 
-    login = (event) => {
+
+    signup = (event) => {
        
         event.preventDefault();
         if(this.formIsValid()){            
-           //TODO auth with AWS cognito to login
-            console.log("Form is valid")
+           //TODO auth with AWS cognito to create account
+           console.log("Form is valid")
         } else {
             console.log(this.state.errorMessage);
         }
@@ -81,30 +126,36 @@ class Login extends Component {
     }
 
     render() {
+
         return(
             <div className="login">
                 <div className="padding dark-text center-text">
                     <div className="card center">
-                        <h1>Sign In to WULogger</h1>
-                        <p>Enter your email address and password</p>
+                        <h1>Create a New Account</h1>
                         <form>
+                            <input onChange={this.updateState} type="text" name="firstName" placeholder="First Name" value={this.state.firstName} required/>
+                            <input onChange={this.updateState} type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} required/>
                             <input onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
-                            <input onKeyDown={this.enterKeyPress} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
+                            <input onChange={this.updateState} type="text" name="displayName" placeholder="Display Name" value={this.state.displayName} required/>
+
+                            <input onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
+                            <input onChange={this.updateState} type="password" name="reenterPassword" placeholder="Reenter Password" required/>
+
                             <p className="error-message" ref="errorMessage">{this.state.errorMessage}</p>
-                            <div className="button box" onClick={this.login}>Login</div>
+                            <div className="button box" onClick={this.signup}>Create Account</div>
                             <Link
                                 to={{
-                                pathname: "/signup",
+                                pathname: "/login",
                                 accountDetailsProps: {
                                     firstName: String(this.state.firstName),
                                     lastName: String(this.state.lastName),
                                     email: String(this.state.email),
-                                    displayName: String(this.state.displayName)                                }
+                                    displayName: String(this.state.displayName)
+                                }
                             }}>
-                                <div className="button box light">Sign Up</div>
+                                <div className="button box light">Login</div>
                             </Link>
                         </form>
-                        <a href="https://www.google.com"><p>I forgot my password</p></a>
                     </div>
                 </div>
             </div>
@@ -112,4 +163,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Signup;

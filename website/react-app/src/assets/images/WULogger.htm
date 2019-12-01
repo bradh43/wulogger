@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:3000/signup -->
+<html lang="en" class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site for runners to connect and share their running stories.">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>WULogger</title>
+  <style>body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+</style><style>html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}</style><style>:root {
+    /* Main colors used  for the website */
+    --primary: #007360;
+    /* Meant to be a slightly brighter color for buttons and gradients */
+    --primary-accent: #037764;
+
+
+    /* Colors for complimenting the other colors on the page */
+    --secondary: #a51417;
+    --secondary-accent: #af181b;
+
+    /* Colors used for the background */
+    --background-primary: #f9f9f9;
+    --background-secondary: #ffffff;
+}
+
+@font-face {
+    font-family: 'rocket';
+    src: url(/static/media/ROCKET_WILDNESS.414afed1.ttf);
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body {
+    margin: 0;
+    color: white;
+    background-color: var(--background-primary);
+
+}
+.header-title {
+    font-family: 'rocket';
+    font-size: 2.4rem;
+}
+.container {
+    background-color: var(--background-primary);
+    margin-top: 64px;
+    margin-bottom: 64px;
+    overflow: scroll;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.padding {
+    padding: 32px;
+}
+.dark-text {
+    color: #6c7373;
+}
+.center-text {
+    text-align: center;
+}
+.card {
+    background-color: var(--background-secondary);
+    border-radius: 2px;
+    padding: 32px;
+    box-shadow: 0 2px 4px 0 rgb(0, 0, 0);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+.line-break {
+    height: 0.5px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: rgb(150,150,150);
+
+}
+.hidden {
+    display: none;
+}
+form {
+    display: block;
+    margin: 0px;
+}
+.light {
+    background: #6c7373 !important; 
+}
+input {
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    line-height: 32px;
+    width: 91%;
+}
+.button {
+    font-size: 1.3rem;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    text-align: center;
+    vertical-align: center;
+    background: var(--primary-accent);
+    color: white;
+    height: 32px;
+    line-height: 32px;
+    box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.round {
+    border-radius: 32px;
+}
+.box {
+    border-radius: 0.25rem;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+.button:active{
+    box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+    box-shadow: 0 8px 16px 0 RGBA(0, 0, 0, 0.2);
+}
+.input-block {
+    display: block;
+    width: 100%;
+}
+.error-message {
+    color: rgb(210, 0, 0);
+}
+a, a:link {
+    color: #1264a3;
+    text-decoration: none;
+}</style><style>body {
+    overflow: hidden;
+}</style><style>.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    height: 64px;
+    z-index: 100;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+.nav-spacing {
+    flex: 1.0 1;
+}
+
+.navbar-items ul {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-items li{
+    padding: 0 0.5rem;
+}
+
+ .navbar-items a {
+   background-color: var(--primary);
+   color: white;
+   text-decoration: none;
+   border-width: 0px;
+   font-size: 1.3em;
+   transition: 0.33s;
+ }
+
+.navbar-items a:hover {
+    color: var(--secondary);
+    text-decoration: none;
+    outline-style: none;
+    cursor: pointer;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 2.3rem;
+    margin-left: 4rem;
+}
+
+.logo img {
+  position: absolute;
+  top: -10px;
+  left: -0.5px;
+  width:70px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .navbar-items {
+        display: none;
+    }
+
+    .logo img {
+      display: none;
+    }
+
+    .home img {
+      display: none;
+    }
+}
+@media screen and (min-width: 600px) {
+    .hamburger-menu{
+        width: 0;
+    }
+}
+</style><style>.hamburgerButton {
+    margin: 10px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .line {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: lightGray;
+    border-radius: 2px;
+    transition: all cubic-bezier(0.25, 0.1, 0.3, 1.5) 0.3s;
+  }
+  
+  #hamburger:hover .line {
+    background-color: white;
+  }
+  
+  .line1 {
+    top: 5%;
+  }
+  .line2 {
+    top: 43%;
+  }
+  .line3 {
+    top: 81%;
+  }
+  
+  #hamburger {
+    visibility: hidden;
+    cursor: pointer;
+  }
+  
+  #hamburger.close .line1 {
+    transform: rotate(45deg);
+    top: 48%;
+  }
+  
+  #hamburger.close .line2, #hamburger.close .line3 {
+    transform: rotate(-45deg);
+    top: 48%;
+  }
+  
+  
+  
+  #hamburgerMenu {
+    visibility: visible;
+  }
+  
+  #hamburgerMenu ul {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6c7373;
+  }
+  
+  #hamburgerMenu ul li a:hover {
+    background-color: white;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 600px) {
+ 
+    #hamburger {
+      visibility: visible;
+    }
+    #hamburgerMenu li {
+      width: 100%;
+  
+    }
+  
+    #hamburgerMenu {
+      visibility: hidden;
+      height: 0px;
+    }
+  
+    #hamburgerMenu.close {
+      height: auto;
+      visibility: visible;
+    }
+  
+  }
+  
+  </style><style>.side-drawer {
+    height: 100%;
+    background: var(--background-primary);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 70%;
+    max-width: 300px;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+
+}
+
+.side-drawer ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-drawer li {
+    margin: 0.5rem 0;
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.side-drawer a{
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.side-drawer a:hover, .side-drawer a:active {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+
+
+.open {
+    transform: translateX(0%);
+    box-shadow: 1px 0px 1px rgba(0, 0, 0);
+    box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.side-drawer-spacing {
+    flex: 1.0 1;
+}
+
+@media screen and (min-width: 600px) {
+    .side-drawer {
+        display: none;
+    }
+   
+}</style><style>.backdrop {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(50, 50, 50);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+@media screen and (min-width: 600px) {
+    .backdrop {
+        display: none;
+    }
+   
+}</style><style>.footer {
+    margin: 0px;
+    width: 100%;
+    height: 64px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: var(--primary);
+}
+.footer p {
+    font-size: 1.0rem;
+    color: lightgray;
+    padding: 8px;
+}
+.social-media-bar {
+    padding: 10px;
+    padding-left: 20px;
+    margin: 0px;
+}
+.social-media-bar p {
+    font-size: 1.1rem;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+.social-media-icons {
+    padding: 0px;
+    margin-bottom: -30px;
+}
+.social-media-icons img {
+    padding: 5px;
+    margin-left: -5px;
+    height: 32px;
+    width: 32px;
+}
+
+.social-media-icons img:hover {
+    padding: 2px;
+    height: 38px;
+    width: 38px;
+}
+</style><style></style><style></style><style></style><style>.card {
+    width: 64vw;
+    min-width: 512px;
+    max-width: 512px;
+}    
+
+@media screen and (max-width: 650px) {
+    .card {
+        min-width: 85%;
+        max-width: 85%;
+        width: 85%;
+        margin: 8px;
+        padding: 16px;
+        margin-left: auto;
+        margin-right: auto;
+    }  
+    .padding {
+        padding: 2px;
+    }
+    .button, input {
+        font-size: 1rem;
+        height: 18px;
+        line-height: 18px;
+    }
+    input {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+    .header-title {
+        font-size: 1.9rem;
+    }
+}</style><style></style><script charset="utf-8" src="./WULogger_files/main.fa4ec381cf5ae80b63fc.hot-update.js"></script><script charset="utf-8" src="./WULogger_files/main.086bb7b4c0c38586b10f.hot-update.js"></script><script charset="utf-8" src="./WULogger_files/main.18578f962cb98b17d29f.hot-update.js"></script><script charset="utf-8" src="./WULogger_files/main.059bba2cd7df5badb205.hot-update.js"></script></head>
+  <body data-gr-c-s-loaded="true">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="app"><header class="navbar"><nav class="navbar-nav"><div class="hamburger-menu"><div class="hamburgerMenu" id="hamburger"><div class="hamburgerButton"><span class="line line1"></span><span class="line line2"></span><span class="line line3"></span></div></div></div><div class="header-title">WuLogger</div><div class="nav-spacing"></div><div class="navbar-items"><ul><li><a href="http://localhost:3000/">Home</a></li><li><a href="http://localhost:3000/calendar">Calendar</a></li><li><a href="http://localhost:3000/about">About</a></li><li><a href="http://localhost:3000/login">Login</a></li></ul></div></nav></header><nav class="side-drawer"><ul><li><a href="http://localhost:3000/">Home</a></li><li><a href="http://localhost:3000/calendar/">Calendar</a></li><li><a href="http://localhost:3000/about/">About</a></li><li><a href="http://localhost:3000/login/">Login</a></li><div class="side-drawer-spacing"></div></ul></nav><div class="container"><div class="login"><div class="padding dark-text center-text"><div class="card center"><h1>Create a New Account</h1><form><input type="text" name="firstName" placeholder="First Name" required=""><input type="text" name="lastName" placeholder="Last Name" required=""><input type="email" name="email" placeholder="Email" required=""><input type="password" name="password" placeholder="Password" required=""><input type="password" name="renterPassword" placeholder="Reenter Password" required=""><p class="error-message"></p><div class="button box">Create Account</div><a href="http://localhost:3000/login"><div class="button box light">Login</div></a></form></div></div></div></div><div class="footer"><div><p>Designed and built by members of WUXC</p></div></div></div></div>
+  <script src="./WULogger_files/bundle.js"></script><script src="./WULogger_files/0.chunk.js"></script><script src="./WULogger_files/main.chunk.js"></script><script src="./WULogger_files/main.afbdd7116c2c66140bd3.hot-update.js"></script>
+
+</body></html>

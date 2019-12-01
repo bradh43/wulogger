@@ -117,4 +117,9 @@ input {
 }
 .error-message {
     color: rgb(210, 0, 0);
+    padding: 2px;
+}
+a, a:link {
+    color: #1264a3;
+    text-decoration: none;
 }

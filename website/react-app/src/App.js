@@ -7,6 +7,8 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Calendar from './pages/Calendar/Calendar';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+
 
 
 
@@ -42,9 +44,10 @@ class App extends Component {
   render() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL} >
-          <Root aboutRef={this.aboutRef}>
+          <Root>
             <Switch>
               <Route path="/login" component={Login}/>
+              <Route path="/signup" component={Signup}/>
               <Route path="/home" component={Home}/>
               <Route path="/calendar" component={Calendar}/>
               <Route path="/about" component={About}/>

@@ -2,7 +2,7 @@
     margin: 0px;
     width: 100%;
     height: 64px;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     overflow: hidden;
