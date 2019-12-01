@@ -18,7 +18,9 @@ class Login extends Component {
                 email: this.props.location.accountDetailsProps.email,
                 displayName: this.props.location.accountDetailsProps.displayName,
                 password: "",
-                errorMessage: ""
+                errorMessage: "",
+                emailErrorClass: "",
+                passwordErrorClass: ""
             }
         } else {
             this.state = {
@@ -27,7 +29,9 @@ class Login extends Component {
                 email: "",
                 displayName: "",
                 password: "",
-                errorMessage: ""
+                errorMessage: "",
+                emailErrorClass: "",
+                passwordErrorClass: ""
             }
 
         }
@@ -43,23 +47,30 @@ class Login extends Component {
         if(this.state.email === ""){
             this.setState({
                 errorMessage: "Email field is required.",
+                emailErrorClass: "error"
             });
             return false;
         } 
         if (!validateEmail(this.state.email)) {
             this.setState({
                 errorMessage: "Email invalid, should be in format you@example.com",
+                emailErrorClass: "error"
             });
             return false;
         } 
+        this.setState({
+            emailErrorClass: ""
+        });
         if(this.state.password === ""){
             this.setState({
                 errorMessage: "Password field is required.",
+                passwordErrorClass: "error"
             });
             return false;
         }        
         this.setState({
             errorMessage: "",
+            passwordErrorClass: ""
         });
         return true;
     }
@@ -88,8 +99,8 @@ class Login extends Component {
                         <h1>Sign In to WULogger</h1>
                         <p>Enter your email address and password</p>
                         <form>
-                            <input onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
-                            <input onKeyDown={this.enterKeyPress} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
+                            <input className={this.state.emailErrorClass} onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
+                            <input className={this.state.passwordErrorClass} onKeyDown={this.enterKeyPress} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
                             <p className="error-message" ref="errorMessage">{this.state.errorMessage}</p>
                             <div className="button box" onClick={this.login}>Login</div>
                             <Link

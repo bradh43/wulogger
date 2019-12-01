@@ -24,7 +24,13 @@ class Signup extends Component {
                 email: this.props.location.accountDetailsProps.email,
                 displayName: this.props.location.accountDetailsProps.displayName,
                 password: "",
-                errorMessage: ""
+                errorMessage: "",
+                firstNameErrorClass: "",
+                lastNameErrorClass: "",
+                emailErrorClass: "",
+                displayNameErrorClass: "",
+                passwordErrorClass: "",
+                reenterPasswordErrorClass: ""
             }
         } else {
             this.state = {
@@ -33,7 +39,13 @@ class Signup extends Component {
                 email: "",
                 displayName: "",
                 password: "",
-                errorMessage: ""
+                errorMessage: "",
+                firstNameErrorClass: "",
+                lastNameErrorClass: "",
+                emailErrorClass: "",
+                displayNameErrorClass: "",
+                passwordErrorClass: "",
+                reenterPasswordErrorClass: ""
             }
 
         }
@@ -50,60 +62,90 @@ class Signup extends Component {
         if(this.state.firstName === ""){
             this.setState({
                 errorMessage: "First name field is required.",
+                firstNameErrorClass: "error",
             });
             return false;
-        }      
+        }     
+        this.setState({
+            firstNameErrorClass: "",
+        }); 
         if(this.state.lastName === ""){
             this.setState({
                 errorMessage: "Last name field is required.",
+                lastNameErrorClass: "error",
             });
             return false;
         } 
+        this.setState({
+            lastNameErrorClass: "",
+        });
         if(this.state.email === ""){
             this.setState({
                 errorMessage: "Email field is required.",
+                emailErrorClass: "error",
             });
             return false;
         } 
         if (!validateEmail(this.state.email)) {
             this.setState({
                 errorMessage: "Email invalid, should be in format you@example.com",
+                emailErrorClass: "error",
             });
             return false;
         } 
+        this.setState({
+            emailErrorClass: "",
+        }); 
         if(this.state.displayName === ""){
             this.setState({
                 errorMessage: "Display name field is required.",
+                displayNameErrorClass: "error",
             });
             return false;
         } 
+        this.setState({
+            displayNameErrorClass: "",
+        }); 
         if(this.state.password === ""){
             this.setState({
                 errorMessage: "Password field is required.",
+                passwordErrorClass: "error",
             });
             return false;
         }   
         if (!validatePassword(this.state.password)) {
             this.setState({
                 errorMessage: "Password must have 1 lower, 1 upper, 1 digit, 1 special, at least 6 letters long",
+                passwordErrorClass: "error"
             });
             return false;
         } 
+        this.setState({
+            passwordErrorClass: "",
+        }); 
         if(this.state.reenterPassword === ""){
             this.setState({
                 errorMessage: "Please reenter password",
+                reenterPasswordErrorClass: "error",
             });
             return false;
-        }       
+        }  
+        this.setState({
+            reenterPasswordErrorClass: "",
+        });     
 
         if(!(this.state.reenterPassword === this.state.password)){
             this.setState({
                 errorMessage: "Passwords do not match",
+                passwordErrorClass: "error",
+                reenterPasswordErrorClass: "error",
             });
             return false;
         }  
         this.setState({
             errorMessage: "",
+            passwordErrorClass: "",
+            reenterPasswordErrorClass: ""
         });
         return true;
     }
@@ -134,13 +176,13 @@ class Signup extends Component {
                         <h1>Create a New Account</h1>
                         <p>Sign up for an account, it's free!</p>
                         <form>
-                            <input onChange={this.updateState} type="text" name="firstName" placeholder="First Name" value={this.state.firstName} required/>
-                            <input onChange={this.updateState} type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} required/>
-                            <input onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
-                            <input onChange={this.updateState} type="text" name="displayName" placeholder="Display Name" value={this.state.displayName} required/>
+                            <input className={this.state.firstNameErrorClass} onChange={this.updateState} type="text" name="firstName" placeholder="First Name" value={this.state.firstName} required/>
+                            <input className={this.state.lastNameErrorClass} onChange={this.updateState} type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} required/>
+                            <input className={this.state.emailErrorClass} onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
+                            <input className={this.state.displayNameErrorClass} onChange={this.updateState} type="text" name="displayName" placeholder="Display Name" value={this.state.displayName} required/>
 
-                            <input onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
-                            <input onChange={this.updateState} type="password" name="reenterPassword" placeholder="Reenter Password" required/>
+                            <input className={this.state.passwordErrorClass} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
+                            <input className={this.state.reenterPasswordErrorClass} onChange={this.updateState} type="password" name="reenterPassword" placeholder="Reenter Password" required/>
 
                             <p className="error-message" ref="errorMessage">{this.state.errorMessage}</p>
                             <div className="button box" onClick={this.signup}>Create Account</div>
