@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'rocket';
+    src: url("../../assets/fonts/ROCKET_WILDNESS.ttf");
+}
 .navbar {
     position: fixed;
     top: 0;
@@ -27,7 +31,7 @@
 }
 
 .navbar-items li{
-    padding: 0 0.5rem;
+    padding: 0 4px;
 }
 
  .navbar-items a {
@@ -36,14 +40,30 @@
    text-decoration: none;
    border-width: 0px;
    font-size: 1.3em;
+   font-family: 'rocket';
+   font-weight: bold;
+   padding: 4px 8px;
+   margin: 1px;
+
+    /* Comment out for circle highlight */
    transition: 0.33s;
  }
 
 .navbar-items a:hover {
+    /* Comment out for circle highlight */
     color: var(--secondary);
     text-decoration: none;
     outline-style: none;
+
     cursor: pointer;
+
+    /* Comment in for circle highlight */
+    /* border-radius: 27px;
+    border-width: 1px;
+    border-color: var(--secondary);
+    border-style: solid;
+    margin: 0px; */
+
 }
 
 .logo a {
@@ -61,7 +81,7 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 764px) {
     .navbar-items {
         display: none;
     }
@@ -74,7 +94,7 @@
       display: none;
     }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 764px) {
     .hamburger-menu{
         width: 0;
     }

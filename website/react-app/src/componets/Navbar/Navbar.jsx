@@ -27,9 +27,11 @@ class Navbar extends Component {
                     <div className="hamburger-menu">
                         <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
                     </div>
-                    <div className="header-title">
-                        WuLogger
-                    </div>
+                    <Link to='/'>
+                        <div className="header-title">
+                            WuLogger
+                        </div>
+                    </Link>
                     <div className="nav-spacing"/>
                     <div className="navbar-items">
                         <ul>

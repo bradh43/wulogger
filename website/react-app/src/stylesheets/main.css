@@ -31,6 +31,8 @@ body {
 .header-title {
     font-family: 'rocket';
     font-size: 2.4rem;
+    color: white;
+
 }
 .container {
     background-color: var(--background-primary);

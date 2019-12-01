@@ -132,6 +132,7 @@ class Signup extends Component {
                 <div className="padding dark-text center-text">
                     <div className="card center">
                         <h1>Create a New Account</h1>
+                        <p>Sign up for an account, it's free!</p>
                         <form>
                             <input onChange={this.updateState} type="text" name="firstName" placeholder="First Name" value={this.state.firstName} required/>
                             <input onChange={this.updateState} type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} required/>

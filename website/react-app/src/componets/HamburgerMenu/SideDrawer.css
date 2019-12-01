@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'rocket';
+    src: url("../../assets/fonts/ROCKET_WILDNESS.ttf");
+}
+
 .side-drawer {
     height: 100%;
     background: var(--background-primary);
@@ -24,6 +29,9 @@
     margin: 0.5rem 0;
     color: var(--primary);
     font-size: 1.3rem;
+    font-family: 'rocket';
+    font-weight: bold;
+    
 }
 
 .side-drawer a{
