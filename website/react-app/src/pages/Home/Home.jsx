@@ -20,7 +20,7 @@ class Home extends Component {
 
     render() {
         return(
-            <div className="container home">
+            <div className="home">
                 <div className="padding dark-text center-text">
                     <h1>Welcome to WuLogger!</h1>
                     <Link to="/signup">New? Create an account</Link>

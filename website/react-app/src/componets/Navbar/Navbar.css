@@ -89,10 +89,6 @@
     .logo img {
       display: none;
     }
-
-    .home img {
-      display: none;
-    }
 }
 @media screen and (min-width: 764px) {
     .hamburger-menu{

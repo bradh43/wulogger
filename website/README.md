@@ -12,3 +12,9 @@
     ```bash
     npm start
     ```
+
+## Deploying React App to AWS
+```bash
+npm run build
+aws s3 sync build s3://wulogger-hosting-react-bucket
+```
