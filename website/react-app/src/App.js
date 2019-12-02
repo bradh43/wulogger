@@ -8,6 +8,8 @@ import About from './pages/About/About';
 import Calendar from './pages/Calendar/Calendar';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+
 
 
 
@@ -36,11 +38,6 @@ class App extends Component {
   }
 
 
-
-
-
-
-
   render() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL} >
@@ -51,7 +48,9 @@ class App extends Component {
               <Route path="/home" component={Home}/>
               <Route path="/calendar" component={Calendar}/>
               <Route path="/about" component={About}/>
-              <Route path="/" render={() => <Home/>}/>
+              <Route path="/" exact render={() => <Home/>}/>
+              <Route path="/error" component={ErrorPage}/>
+              <Route component={ErrorPage} />
             </Switch>
           </Root>
         </BrowserRouter>

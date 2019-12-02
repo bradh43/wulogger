@@ -20,9 +20,10 @@ class Home extends Component {
 
     render() {
         return(
-            <div className="container">
+            <div className="container home">
                 <div className="padding dark-text center-text">
                     <h1>Welcome to WuLogger!</h1>
+                    <Link to="/signup">New? Create an account</Link>
                 </div>
                 <div className="center padding">
                     <img src={require("../../assets/images/washu_mascot.png")} alt="bear" className="center"/>
