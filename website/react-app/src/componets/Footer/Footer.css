@@ -1,7 +1,7 @@
 .footer {
     margin: 0px;
     width: 100%;
-    height: 64px;
+    height: 32px;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -12,6 +12,9 @@
     font-size: 1.0rem;
     color: lightgray;
     padding: 8px;
+    line-height: 32px;
+    margin: 0px;
+    padding: 0px 16px;
 }
 .social-media-bar {
     padding: 10px;
