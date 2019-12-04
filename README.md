@@ -29,7 +29,7 @@ What started as a funny joke of remaking our favorite website has turned into a 
 
 # Implementation
 
-Not sure what other people think about for front-end/server/database stuff, but there are a ton of options that we can look towards for different aspects of the project.
+Not sure what other people think about for front-end/server/database stuff, but there are a ton of options that we can look towards for different aspects of the project. One thing we can check out are these react components found here: https://material-ui.com/
 
 ## Front-End Stuff
 
