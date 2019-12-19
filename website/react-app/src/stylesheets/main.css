@@ -16,10 +16,12 @@
     --error-red: rgb(210, 0, 0);
 }
 
+
 @font-face {
     font-family: 'rocket';
     src: url("../assets/fonts/ROCKET_WILDNESS.ttf");
 }
+
 html, body {
     max-width: 100%;
     overflow-x: hidden;
@@ -29,6 +31,10 @@ body {
     color: white;
     background-color: var(--background-primary);
 
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 .header-title {
     font-family: 'rocket';
@@ -126,7 +132,11 @@ input {
 input.error {
     border-color: var(--error-red);
 }
-a, a:link {
+a.text-link, a.text-link:link {
     color: #1264a3;
-    text-decoration: none;
+}
+.Button {
+    color: black;
+    margin: 16px;
+    padding: 16px;
 }

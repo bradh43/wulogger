@@ -23,7 +23,7 @@ class Home extends Component {
             <div className="home">
                 <div className="padding dark-text center-text">
                     <h1>Welcome to WuLogger!</h1>
-                    <Link to="/signup">New? Create an account</Link>
+                    <Link to="/signup" className="text-link">New? Create an account</Link>
                 </div>
                 <div className="center padding">
                     <img src={require("../../assets/images/washu_mascot.png")} alt="bear" className="center"/>

@@ -5,6 +5,38 @@ import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
 import {Link} from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Slide from '@material-ui/core/Slide';
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+
+  function ElevationScroll(props) {
+    const { children } = props;
+
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 0,
+    });
+  
+    return React.cloneElement(children, {
+      elevation: trigger ? 4 : 0,
+    });
+  }
+  
+  ElevationScroll.propTypes = {
+    children: PropTypes.element.isRequired,
+  };
+
 
 class Navbar extends Component {
     constructor(props){
@@ -20,29 +52,49 @@ class Navbar extends Component {
             showSideDrawer: nextProps.showSideDrawer,
         });
     }
+
+    
+
     render(){
         return(
-            <header className="navbar">
-                <nav className="navbar-nav">
-                    <div className="hamburger-menu">
-                        <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
-                    </div>
-                    <Link to='/'>
-                        <div className="header-title">
-                            WuLogger
-                        </div>
-                    </Link>
-                    <div className="nav-spacing"/>
-                    <div className="navbar-items">
-                        <ul>
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/calendar'>Calendar</Link></li>
-                            <li><Link to='/about'>About</Link></li>
-                            <li><Link to='/login'>Login</Link></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+            // <header className="navbar">
+            //     <nav className="navbar-nav">
+            //         <div className="hamburger-menu">
+            //             <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
+            //         </div>
+            //         <Link to='/'>
+            //             <div className="header-title">
+            //                 WuLogger
+            //             </div>
+            //         </Link>
+            //         <div className="nav-spacing"/>
+            //         <div className="navbar-items">
+            //             <ul>
+            //                 <li><Link to='/'>Home</Link></li>
+            //                 <li><Link to='/calendar'>Calendar</Link></li>
+            //                 <li><Link to='/about'>About</Link></li>
+            //                 <li><Link to='/login'>Login</Link></li>
+            //             </ul>
+            //         </div>
+            //     </nav>
+            // </header>
+            <div className="flex-spacing">
+                {/* <HideOnScroll {...this.props}> */}
+                <ElevationScroll {...this.props}>
+
+                    <AppBar>
+                        <Toolbar>
+                            <div className="hamburger-menu">
+                                <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
+                            </div>
+                            <Link to='/home'><Typography variant="h6">WuLogger</Typography></Link>
+                            <div className="flex-spacing"></div>
+                            <Link to='/login'><Button color="inherit">Login</Button></Link>
+
+                        </Toolbar>
+                    </AppBar>
+                </ElevationScroll>
+            </div>
         );
     }
 }

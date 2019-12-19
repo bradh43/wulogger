@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import './Login.css';
 import {Link} from 'react-router-dom';
+import {Input, TextField, InputAdornment, IconButton, Button} from '@material-ui/core';
+import {Visibility, VisibilityOff} from '@material-ui/icons';
+import { withStyles } from '@material-ui/core/styles';
+
 
 function validateEmail(email) {
     var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return email_regex.test(String(email).toLowerCase());
 }
-
+const styles = theme => ({
+    ...theme.formStyle
+});
 class Login extends Component {
+
     constructor(props){
-        super(props);
+        super(props);  
+
 
         if(this.props.location.accountDetailsProps){
             this.state = {
@@ -20,7 +28,8 @@ class Login extends Component {
                 password: "",
                 errorMessage: "",
                 emailErrorClass: "",
-                passwordErrorClass: ""
+                passwordErrorClass: "",
+                showPassword: false
             }
         } else {
             this.state = {
@@ -30,16 +39,18 @@ class Login extends Component {
                 displayName: "",
                 password: "",
                 errorMessage: "",
-                emailErrorClass: "",
-                passwordErrorClass: ""
+                emailError: false,
+                passwordError: false,
+                showPassword: false
             }
 
         }
     }
 
     componentDidMount(){
-        this.setState(state => ({
 
+        this.setState(state => ({
+            
         }));
     }
 
@@ -47,30 +58,30 @@ class Login extends Component {
         if(this.state.email === ""){
             this.setState({
                 errorMessage: "Email field is required.",
-                emailErrorClass: "error"
+                emailError: true
             });
             return false;
         } 
         if (!validateEmail(this.state.email)) {
             this.setState({
                 errorMessage: "Email invalid, should be in format you@example.com",
-                emailErrorClass: "error"
+                emailError: true
             });
             return false;
         } 
         this.setState({
-            emailErrorClass: ""
+            emailError: false
         });
         if(this.state.password === ""){
             this.setState({
                 errorMessage: "Password field is required.",
-                passwordErrorClass: "error"
+                passwordError: true
             });
             return false;
         }        
         this.setState({
             errorMessage: "",
-            passwordErrorClass: ""
+            passwordError: false
         });
         return true;
     }
@@ -91,31 +102,95 @@ class Login extends Component {
         this.setState({[event.target.name]: String(event.target.value)});
     }
 
+    handleClickShowPassword = () => {
+        this.setState({showPassword: !this.state.showPassword });
+    };
+    
+    handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+    handleChange = event => {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+      };
+
+
+    
+
     render() {
+
+        const {
+            classes
+        } = this.props;
+
         return(
+            
             <div className="login">
                 <div className="padding dark-text center-text">
                     <div className="card center">
                         <h1>Sign In to WULogger</h1>
                         <p>Enter your email address and password</p>
-                        <form>
-                            <input className={this.state.emailErrorClass} onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
-                            <input className={this.state.passwordErrorClass} onKeyDown={this.enterKeyPress} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
+                        <form noValidate autoComplete="off">
+                            <TextField label="Email" margin='dense' fullWidth={true} onChange={this.updateState} className={classes.textField} error={this.state.emailError} type="email" name="email" placeholder="you@wustl.edu" value={this.state.email} required/>
+                            {/* <TextField label="Password" fullWidth={true} className={this.state.passwordErrorClass} onKeyDown={this.enterKeyPress} onChange={this.updateState} type="password" name="password" placeholder="Password" required/> */}
+                            <Input
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                value={this.state.password}
+                                label="Password" 
+                                fullWidth={true} 
+                                margin='dense'
+                                className={classes.inputField}                                
+                                onKeyDown={this.enterKeyPress} 
+                                onChange={this.handleChange} 
+                                name="password" 
+                                placeholder="Password"   
+                                error={this.state.passwordError}                             
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={this.handleClickShowPassword}
+                                        onMouseDown={this.handleMouseDownPassword}
+                                        >
+                                        {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                required
+                            />
                             <p className="error-message" ref="errorMessage">{this.state.errorMessage}</p>
-                            <div className="button box" onClick={this.login}>Login</div>
-                            <Link
+                            {/* <div className="button box" onClick={this.login}>Login</div> */}
+                            {/* <Link
                                 to={{
                                 pathname: "/signup",
                                 accountDetailsProps: {
                                     firstName: String(this.state.firstName),
                                     lastName: String(this.state.lastName),
                                     email: String(this.state.email),
-                                    displayName: String(this.state.displayName)                                }
+                                    displayName: String(this.state.displayName)                                
+                                }
                             }}>
                                 <div className="button box light">Sign Up</div>
-                            </Link>
+                            </Link> */}
+                            <Button onClick={this.login} variant="contained" color="primary" size="large" fullWidth={true} className={classes.button}>Login</Button>
+
+                            <div>
+                                <Link
+                                    to={{
+                                    pathname: "/signup",
+                                    accountDetailsProps: {
+                                        firstName: String(this.state.firstName),
+                                        lastName: String(this.state.lastName),
+                                        email: String(this.state.email),
+                                        displayName: String(this.state.displayName)                                
+                                    }
+                                }}>
+                                    <Button variant="contained" size="large" fullWidth={true} className={classes.button}>Sign Up</Button>
+                                </Link>
+                            </div>
                         </form>
-                        <a href="https://www.google.com"><p>I forgot my password</p></a>
+                        <a className="text-link" href="https://www.google.com"><p>I forgot my password</p></a>
                     </div>
                 </div>
             </div>
@@ -123,4 +198,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withStyles(styles)(Login);

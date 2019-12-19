@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import {Link} from 'react-router-dom';
+import {Input, TextField, InputAdornment, IconButton, Button} from '@material-ui/core';
+import {Visibility, VisibilityOff} from '@material-ui/icons';
+import { withStyles } from '@material-ui/core/styles';
+
 
 function validateEmail(email) {
     var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -12,7 +16,9 @@ function validatePassword(password) {
     var password_regex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
     return password_regex.test(String(password));
 }
-
+const styles = theme => ({
+    ...theme.formStyle
+});
 class Signup extends Component {
     constructor(props){
         super(props);
@@ -25,12 +31,14 @@ class Signup extends Component {
                 displayName: this.props.location.accountDetailsProps.displayName,
                 password: "",
                 errorMessage: "",
-                firstNameErrorClass: "",
-                lastNameErrorClass: "",
-                emailErrorClass: "",
-                displayNameErrorClass: "",
-                passwordErrorClass: "",
-                reenterPasswordErrorClass: ""
+                firstNameError: false,
+                lastNameError: false,
+                emailError: false,
+                displayNameError: false,
+                passwordError: false,
+                reenterPasswordError: false,
+                showPassword: false,
+                showReenterPassword: false
             }
         } else {
             this.state = {
@@ -40,12 +48,14 @@ class Signup extends Component {
                 displayName: "",
                 password: "",
                 errorMessage: "",
-                firstNameErrorClass: "",
-                lastNameErrorClass: "",
-                emailErrorClass: "",
-                displayNameErrorClass: "",
-                passwordErrorClass: "",
-                reenterPasswordErrorClass: ""
+                firstNameError: false,
+                lastNameError: false,
+                emailError: false,
+                displayNameError: false,
+                passwordError: false,
+                reenterPasswordError: false,
+                showPassword: false,
+                showReenterPassword: false
             }
 
         }
@@ -62,90 +72,90 @@ class Signup extends Component {
         if(this.state.firstName === ""){
             this.setState({
                 errorMessage: "First name field is required.",
-                firstNameErrorClass: "error",
+                firstNameError: true,
             });
             return false;
         }     
         this.setState({
-            firstNameErrorClass: "",
+            firstNameError: false,
         }); 
         if(this.state.lastName === ""){
             this.setState({
                 errorMessage: "Last name field is required.",
-                lastNameErrorClass: "error",
+                lastNameError: true,
             });
             return false;
         } 
         this.setState({
-            lastNameErrorClass: "",
+            lastNameError: false,
         });
         if(this.state.email === ""){
             this.setState({
                 errorMessage: "Email field is required.",
-                emailErrorClass: "error",
+                emailError: true,
             });
             return false;
         } 
         if (!validateEmail(this.state.email)) {
             this.setState({
                 errorMessage: "Email invalid, should be in format you@example.com",
-                emailErrorClass: "error",
+                emailError: true,
             });
             return false;
         } 
         this.setState({
-            emailErrorClass: "",
+            emailError: false,
         }); 
         if(this.state.displayName === ""){
             this.setState({
                 errorMessage: "Display name field is required.",
-                displayNameErrorClass: "error",
+                displayNameError: true,
             });
             return false;
         } 
         this.setState({
-            displayNameErrorClass: "",
+            displayNameError: false,
         }); 
         if(this.state.password === ""){
             this.setState({
                 errorMessage: "Password field is required.",
-                passwordErrorClass: "error",
+                passwordError: true,
             });
             return false;
         }   
         if (!validatePassword(this.state.password)) {
             this.setState({
                 errorMessage: "Password must have 1 lower, 1 upper, 1 digit, 1 special, at least 6 letters long",
-                passwordErrorClass: "error"
+                passwordError: true
             });
             return false;
         } 
         this.setState({
-            passwordErrorClass: "",
+            passwordError: false,
         }); 
         if(this.state.reenterPassword === ""){
             this.setState({
                 errorMessage: "Please reenter password",
-                reenterPasswordErrorClass: "error",
+                reenterPasswordError: true,
             });
             return false;
         }  
         this.setState({
-            reenterPasswordErrorClass: "",
+            reenterPasswordError: false,
         });     
 
         if(!(this.state.reenterPassword === this.state.password)){
             this.setState({
                 errorMessage: "Passwords do not match",
-                passwordErrorClass: "error",
-                reenterPasswordErrorClass: "error",
+                passwordError: true,
+                reenterPasswordError: true,
             });
             return false;
         }  
         this.setState({
             errorMessage: "",
-            passwordErrorClass: "",
-            reenterPasswordErrorClass: ""
+            passwordError: false,
+            reenterPasswordError: false
         });
         return true;
     }
@@ -166,8 +176,22 @@ class Signup extends Component {
     updateState = (event) => {
         this.setState({[event.target.name]: String(event.target.value)});
     }
+    handleClickShowPassword = () => {
+        this.setState({showPassword: !this.state.showPassword });
+    };
+    handleClickShowReenterPassword = () => {
+        this.setState({showReenterPassword: !this.state.showReenterPassword });
+    };
+    
+    handleMouseDown = (event) => {
+        event.preventDefault();
+    };
+
 
     render() {
+        const {
+            classes
+        } = this.props;
 
         return(
             <div className="login">
@@ -175,17 +199,63 @@ class Signup extends Component {
                     <div className="card center">
                         <h1>Create a New Account</h1>
                         <p>Sign up for an account, it's free!</p>
-                        <form>
-                            <input className={this.state.firstNameErrorClass} onChange={this.updateState} type="text" name="firstName" placeholder="First Name" value={this.state.firstName} required/>
-                            <input className={this.state.lastNameErrorClass} onChange={this.updateState} type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} required/>
-                            <input className={this.state.emailErrorClass} onChange={this.updateState} type="email" name="email" placeholder="Email" value={this.state.email} required/>
-                            <input className={this.state.displayNameErrorClass} onChange={this.updateState} type="text" name="displayName" placeholder="Display Name" value={this.state.displayName} required/>
-
-                            <input className={this.state.passwordErrorClass} onChange={this.updateState} type="password" name="password" placeholder="Password" required/>
-                            <input className={this.state.reenterPasswordErrorClass} onChange={this.updateState} type="password" name="reenterPassword" placeholder="Reenter Password" required/>
-
+                        <form noValidate autoComplete="off">
+                            <TextField label="First Name" margin='dense' fullWidth={true} onChange={this.updateState} className={classes.textField} error={this.state.firstNameError} type="text" name="firstName" placeholder="Jeff" value={this.state.firstName} required/>
+                            <TextField label="Last Name" margin='dense' fullWidth={true} onChange={this.updateState} className={classes.textField} error={this.state.lastNameError} type="text" name="lastName" placeholder="Stiles" value={this.state.lastName} required/>
+                            <TextField label="Email" margin='dense' fullWidth={true} onChange={this.updateState} className={classes.textField} error={this.state.emailError} type="email" name="email" placeholder="you@wustl.edu" value={this.state.email} required/>
+                            <TextField label="Display Name" margin='dense' fullWidth={true} onChange={this.updateState} className={classes.textField} error={this.state.displayNameError} type="text" name="displayName" placeholder="WaterOverRock" value={this.state.displayName} required/>
+                            <Input
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                value={this.state.password}
+                                label="Password" 
+                                fullWidth={true} 
+                                margin='dense'
+                                className={classes.inputField}                                
+                                onKeyDown={this.enterKeyPress} 
+                                onChange={this.updateState} 
+                                name="password"
+                                placeholder="Password"   
+                                error={this.state.passwordError}                             
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={this.handleClickShowPassword}
+                                        onMouseDown={this.handleMouseDown}
+                                        >
+                                        {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                required
+                            />
+                            <Input
+                                type={this.state.showReenterPassword ? 'text' : 'password'}
+                                value={this.state.reenterPassword}
+                                label="Reenter Password" 
+                                fullWidth={true} 
+                                margin='dense'
+                                className={classes.inputField}                                
+                                onKeyDown={this.enterKeyPress} 
+                                onChange={this.updateState}  
+                                name="reenterPassword"
+                                placeholder="Reenter Password"   
+                                error={this.state.reenterPasswordError}                             
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={this.handleClickShowReenterPassword}
+                                        onMouseDown={this.handleMouseDown}
+                                        >
+                                        {this.state.showReenterPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                required
+                            />
                             <p className="error-message" ref="errorMessage">{this.state.errorMessage}</p>
-                            <div className="button box" onClick={this.signup}>Create Account</div>
+                            <Button onClick={this.signup} variant="contained" color="primary" size="large" fullWidth={true} className={classes.button}>Create Account</Button>
                             <Link
                                 to={{
                                 pathname: "/login",
@@ -196,7 +266,7 @@ class Signup extends Component {
                                     displayName: String(this.state.displayName)
                                 }
                             }}>
-                                <div className="button box light">Login</div>
+                                <Button variant="contained" size="large" fullWidth={true} className={classes.button}>Already have an account? Login</Button>
                             </Link>
                         </form>
                     </div>
@@ -206,4 +276,14 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+// TODO:
+// Look into this, might be because of no WIFI:
+// 1.chunk.js:221363 Warning: A component is changing an uncontrolled input of type password to be controlled. 
+// Input elements should not switch from uncontrolled to controlled (or vice versa). 
+// Decide between using a controlled or uncontrolled input element for the lifetime of the component.
+// More info: https://fb.me/react-controlled-components
+// Weird it dissapeared after a bit, prolly google it or something
+
+export default withStyles(styles)(Signup);
+
+

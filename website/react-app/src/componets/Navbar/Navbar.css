@@ -22,6 +22,9 @@
 .nav-spacing {
     flex: 1.0;
 }
+.flex-spacing {
+    flex-grow: 1;
+}
 
 .navbar-items ul {
     list-style: none;
