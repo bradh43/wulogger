@@ -89,8 +89,7 @@ resource "aws_cognito_user_pool" "wulogger_user_pool" {
     sns_caller_arn = "${aws_iam_role.cidp.arn}"
   }
 
-  tags = {
-    "Name"    = "FooBar"
-    "Project" = "Terraform"
-  }
+    tags = "${merge(map( 
+        "name", "wulogger-user-pool", 
+    ), var.wulogger_tags)}"
 }
