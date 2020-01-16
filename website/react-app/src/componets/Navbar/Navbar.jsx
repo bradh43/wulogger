@@ -72,8 +72,8 @@ class Navbar extends Component {
                     <AppBar>
                         <Toolbar>
                             <div className="hamburger-menu">
-                                {/* <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} /> */}
-                                <HamburgerMenu/>
+                                <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
+                                {/* <HamburgerMenu/> */}
                             </div>
                             <Link to='/home'><Typography variant="h6">WuLogger</Typography></Link>
                             <div className="flex-spacing"></div>

@@ -37,7 +37,7 @@ class Home extends Component {
                 <div className="center padding">
                     <img src={require("../../assets/images/washu_mascot.png")} alt="bear" className="center"/>
                 </div>
-                <LogCard logDetailsProps={this.state.testLog}></LogCard>
+                {/* <LogCard logDetailsProps={this.state.testLog}></LogCard> */}
             </div>
         );
     }

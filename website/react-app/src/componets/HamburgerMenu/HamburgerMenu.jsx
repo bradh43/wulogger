@@ -96,25 +96,25 @@ export default function HamburgerMenu() {
   return (
     <div>
       {/* <Button onClick={toggleDrawer('left', true)}> */}
-        <IconButton
+        {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={toggleDrawer('left', true)}
             edge='start'
             className={`calc(100%) > 600px` ? classes.hide : ''}
-            
           >
             <Menu/>
-        </IconButton>      
-        {/* <div className="hamburgerMenu" id="hamburger" onClick={toggleDrawer('left', true)}>
+            </IconButton> */}
+        {/* </Button> */}
+      
+        <div className="hamburgerMenu" id="hamburger" onClick={toggleDrawer('left', true)}>
 
         <div className="hamburgerButton">
             <span className="line line1"></span>
             <span className="line line2"></span>
             <span className="line line3"></span>
         </div>
-        </div> */}
-      {/* </Button> */}
+        </div>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>
