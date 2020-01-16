@@ -1,4 +1,3 @@
-import { fontSize } from "@material-ui/system";
 
 export default {
     palette: {
@@ -19,6 +18,11 @@ export default {
         },
         inputField: {
             margin: '32px 0 16px 0',
+        }
+      },
+      cardStyle: {
+        card: {
+          padding: '16px'
         }
       }
   };

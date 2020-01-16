@@ -13,7 +13,8 @@
     --background-primary: #f9f9f9;
     --background-secondary: #ffffff;
 
-    --error-red: rgb(210, 0, 0);
+    /* --error-red: rgb(210, 0, 0); */
+    --error-red: #f44336
 }
 
 

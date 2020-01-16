@@ -2,22 +2,9 @@ import React, { Component } from 'react';
 
 import './Navbar.css';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
-
 import {Link} from 'react-router-dom';
-
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Slide from '@material-ui/core/Slide';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import {AppBar,Button,Toolbar, Typography, useScrollTrigger} from '@material-ui/core';
 
 
   function ElevationScroll(props) {
@@ -85,7 +72,8 @@ class Navbar extends Component {
                     <AppBar>
                         <Toolbar>
                             <div className="hamburger-menu">
-                                <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} />
+                                {/* <HamburgerMenu click={this.state.toggleSideDrawer} showSideDrawer={this.state.showSideDrawer} /> */}
+                                <HamburgerMenu/>
                             </div>
                             <Link to='/home'><Typography variant="h6">WuLogger</Typography></Link>
                             <div className="flex-spacing"></div>

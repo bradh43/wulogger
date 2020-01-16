@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Home.css';
 import {Link} from 'react-router-dom';
+import LogCard from './../../componets/LogCard/LogCard';
+
 
 
 
@@ -8,7 +10,11 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+            testLog: {
+                title:"Log title",
+                activity:"run",
+                author:"author"
+            }
         }
     }
 
@@ -16,7 +22,10 @@ class Home extends Component {
         this.setState(state => ({
 
         }));
+ 
     }
+    
+
 
     render() {
         return(
@@ -28,6 +37,7 @@ class Home extends Component {
                 <div className="center padding">
                     <img src={require("../../assets/images/washu_mascot.png")} alt="bear" className="center"/>
                 </div>
+                <LogCard logDetailsProps={this.state.testLog}></LogCard>
             </div>
         );
     }
