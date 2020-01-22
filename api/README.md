@@ -87,6 +87,7 @@ Log Sample JSON:
 	"date":	"01-31-2019",
 	"author": "Prat",
 	"sleep_hr": 8.0,
+	"heart_rate": 58,
 	"last_updated_timestamp": "2019-08-07T18:21:00.000Z",
 	"activity_list": [
 		{

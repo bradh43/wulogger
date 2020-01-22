@@ -84,7 +84,7 @@
 }
 
 
-@media screen and (max-width: 764px) {
+/* @media screen and (max-width: 764px) {
     .navbar-items {
         display: none;
     }
@@ -92,9 +92,9 @@
     .logo img {
       display: none;
     }
-}
-@media screen and (min-width: 764px) {
+} */
+/* @media screen and (min-width: 764px) {
     .hamburger-menu{
         width: 0;
     }
-}
+} */

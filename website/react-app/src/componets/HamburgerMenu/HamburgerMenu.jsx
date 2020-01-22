@@ -1,5 +1,5 @@
 import React from 'react';
-import {IconButton, ListItemText, ListItemIcon, ListItem, List, Drawer, makeStyles} from '@material-ui/core';
+import {IconButton, ListItemText, ListItemIcon, ListItem, List, Drawer, makeStyles, Divider} from '@material-ui/core';
 import {Menu, Home, CalendarToday, Info} from '@material-ui/icons';
 import {Link} from 'react-router-dom';
 import './HamburgerMenu.css';
@@ -41,6 +41,13 @@ export default function HamburgerMenu() {
       onKeyDown={toggleDrawer(side, false)}
     >
         <List>
+          <ListItem button key="WuLogger">
+                <ListItemIcon><Menu/></ListItemIcon>
+                <ListItemText primary="WuLogger" />
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
             {['Home', 'Calendar', 'About'].map((text, index) => (
             <ListItem button key={text}>
                 <ListItemIcon>{sideButtonList[index]}</ListItemIcon>
@@ -50,6 +57,7 @@ export default function HamburgerMenu() {
             </ListItem>
             ))}
         </List>
+
         {/* <li><Link to='/'>Home</Link></li>
         <li><Link to='/calendar'>Calendar</Link></li>
         <li><Link to='/about'>About</Link></li>
@@ -96,25 +104,26 @@ export default function HamburgerMenu() {
   return (
     <div>
       {/* <Button onClick={toggleDrawer('left', true)}> */}
-        {/* <IconButton
+        <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={toggleDrawer('left', true)}
             edge='start'
-            className={`calc(100%) > 600px` ? classes.hide : ''}
+            // className={`calc(100%) > 600px` ? classes.hide : ''}
           >
             <Menu/>
-            </IconButton> */}
+        </IconButton>
         {/* </Button> */}
+
       
-        <div className="hamburgerMenu" id="hamburger" onClick={toggleDrawer('left', true)}>
+        {/* <div className="hamburgerMenu" id="hamburger" onClick={toggleDrawer('left', true)}>
 
         <div className="hamburgerButton">
             <span className="line line1"></span>
             <span className="line line2"></span>
             <span className="line line3"></span>
         </div>
-        </div>
+        </div> */}
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>
